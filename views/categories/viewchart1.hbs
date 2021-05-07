@@ -1,0 +1,69 @@
+{{!-- 
+
+  <a href="/generate"></a>
+  <canvas id="myChart" style="display: block;height: 100px; width: 301px;background-color: azure; margin-bottom: 2%;
+    margin-left: 1%;"></canvas>
+  <!-- Start Js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    {{# each orders}}
+    
+  <script>
+    let ctx = document.querySelector('#myChart').getContext('2d');
+
+    let myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ["Amount","Amount","Amount","Amount"] ,
+        datasets: [{
+          label: '#' ,
+          data: [{{ this.cart.totalQty }},{{ this.cart.totalQty }},{{ this.cart.totalQty }},{{ this.cart.totalQty }}],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)'
+             ],
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)'
+        ],
+          borderWidth: 1
+        }]
+     },
+     options: {
+         scales: {
+             yAxes: [{
+                 ticks: {
+                     beginAtZero:true
+                 }
+             }]
+         },
+         title: {
+            display: true,
+            text: 'User Order',
+            fontSize: 18
+        }
+     }
+    }); // end chart obj
+
+  </script>
+     {{/each}}
+
+
+ --}}
+   {{# if type}}
+ <div >
+<div class="embed-responsive embed-responsive-16by9" style="margin: 3% 7% 3% 7%;">
+<iframe class="embed-responsive-item" style="background: #21313C;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-shoppingonline-eqtzr/embed/charts?id=8f8d27e9-858c-467a-876c-89b542c9a948&autoRefresh=1800&theme=dark"></iframe>
+</div>
+<div class="embed-responsive embed-responsive-16by9"  style="margin: 3% 7% 3% 7%;">
+<iframe class="embed-responsive-item" style="background: #21313C;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-shoppingonline-eqtzr/embed/charts?id=888e2f69-5daf-4089-bf19-06ba6399ec77&autoRefresh=1800&theme=dark"></iframe>
+</div>
+<div class="embed-responsive embed-responsive-16by9"  style="margin: 3% 7% 3% 7%;">
+  <iframe class="embed-responsive-item" style="background: #21313C;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-shoppingonline-eqtzr/embed/charts?id=d4957d11-56c5-4ca3-b8fe-0683e887c70b&autoRefresh=1800&theme=dark"></iframe>
+</div>
+</div>
+{{/if}}
+
+
+
+
+

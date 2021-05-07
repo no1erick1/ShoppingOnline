@@ -1,0 +1,116 @@
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+     <nav class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="
+    margin-right: 2%;
+    margin-top: 3%;
+    
+">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div>
+            <a  href="/">
+             <h1 class="ml8 col-sm navbar-brand">
+  <div class="letters-container col-sm"  style="width: 150px;
+height: 117px;">
+    <span class="letters letters-left" style="font-size: 15px;">HYShop</span>
+    <span class="letters bang" style="font-size: 15px;"><img src="https://i.pinimg.com/originals/76/38/bf/7638bf7991c005e235d56a82c540be82.gif" style="width: 40px;" height="40px"></span>
+  </div>
+  
+  <div class="circle circle-dark"  style="margin-top: 10px;"></div>
+  <div class="circle circle-container" style="width: 150px;
+height: 117px; margin-top: 9px;"><span class="circle circle-dark-dashed"></span></div> </div>
+</h1>
+               </a> 
+            </div>
+            <div id="navbar" class="navbar-collapse collapse navbar-right" style="margin-top: 13px;">
+              <ul class="nav navbar-nav">
+                <li style="padding-right: 50px;"><a href="/"><i class="fa fa-home" aria-hidden="true"></i>
+ Home</a></li>
+        <li style="padding-right: 50px;"><a href="/shopping-cart/">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart <span class="badge"> {{session.cart.totalQty}}</span>
+        </a></li>
+        {{# if login}}
+          <li style="padding-right: 50px;">
+          <a href="/user/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
+          </li>
+          <li style="padding-right: 50px;">
+          <a href="/user/profile"><i class="fa fa-user" aria-hidden="true"></i> Profile </a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/categories/books"><i class="fa fa-book" aria-hidden="true"></i>&nbspBooks</a></li>
+                    <li><a href="/categories/elec"><i class="fa fa-plug" aria-hidden="true"></i>&nbspElectronics</a></li>
+                    <li><a href="/categories/game"><i class="fa fa-gamepad" aria-hidden="true"></i>&nbspGames</a></li>
+                    <li><a href="/categories/gaming"><i class="fa fa-gamepad" aria-hidden="true"></i>&nbspGaming Acessories</a></li>
+                    <li><a href="/categories/mobile"><i class="fa fa-mobile" aria-hidden="true"></i>&nbspMobiles</a></li>
+                    {{else}}
+                     <li style="padding-right: 50px;"><a href="/user/signin"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a></li>
+                     <li class="dropdown" style="padding-right: 50px;">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/categories/books"><i class="fa fa-book" aria-hidden="true"></i>&nbspBooks</a></li>
+                    <li><a href="/categories/elec"><i class="fa fa-plug" aria-hidden="true"></i>&nbspElectronics</a></li>
+                    <li><a href="/categories/game"><i class="fa fa-gamepad" aria-hidden="true"></i>&nbspGames</a></li>
+                    <li><a href="/categories/gaming"><i class="fa fa-gamepad" aria-hidden="true"></i>&nbspGaming Acessories</a></li>
+                    <li><a href="/categories/mobile"><i class="fa fa-mobile" aria-hidden="true"></i>&nbspMobiles</a></li>
+                    {{/if}}
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          </nav>
+          <script>
+            anime.timeline({loop: true})
+  .add({
+    targets: '.ml8 .circle-white',
+    scale: [0, 3],
+    opacity: [1, 0],
+    easing: "easeInOutExpo",
+    rotateZ: 360,
+    duration: 1100
+  }).add({
+    targets: '.ml8 .circle-container',
+    scale: [0, 1],
+    duration: 1100,
+    easing: "easeInOutExpo",
+    offset: '-=1000'
+  }).add({
+    targets: '.ml8 .circle-dark',
+    scale: [0, 1],
+    duration: 1100,
+    easing: "easeOutExpo",
+    offset: '-=600'
+  }).add({
+    targets: '.ml8 .letters-left',
+    scale: [0, 1],
+    duration: 1200,
+    offset: '-=550'
+  }).add({
+    targets: '.ml8 .bang',
+    scale: [0, 1],
+    rotateZ: [45, 15],
+    duration: 1200,
+    offset: '-=1000'
+  }).add({
+    targets: '.ml8',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1400
+  });
+
+anime({
+  targets: '.ml8 .circle-dark-dashed',
+  rotateZ: 360,
+  duration: 8000,
+  easing: "linear",
+  loop: true
+});
+          </script>
+          <!-- Footer -->

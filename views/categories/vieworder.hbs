@@ -1,0 +1,59 @@
+   {{# if type}}
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+tr{
+ border: 1px solid black;
+  background-color: aliceblue !important; 
+}
+td{
+  border: 1px solid black;
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+  margin-left: 10px;
+}
+th {
+    background-color: black;
+    color: #ddd;
+}
+
+</style>
+<div style="
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 3%;
+">
+<h2>Order list of customer </h2>
+<p>Orders list is the place where all the orders are created. You can view information of the order: Order number, customer, order status, total amount, ...</p>
+<div style="overflow-x:auto;">
+  <table style="border: 1px solid black;">
+    <tr class="trfather">
+       <th>Id order</th>
+       <th>Date order</th>
+    <th>User</th>   
+    <th>Address</th>
+    <th>Name product</th>
+    <th>Quantity</th>
+    <th>Total(VND)</th>
+    </tr>
+      {{# each orders}}
+    <tr class="trson" style=" ">
+       <td> {{this._id}}</td>
+       <td> {{this.date}}</td>
+    <td> {{this.name}}</td>
+    <td>{{this.address}}</td>
+      <td>{{#each this.items}} {{this.item.title}} || {{/each}}</td>
+       <td>{{ this.cart.totalQty }} </td>
+    <td> {{ this.cart.totalPrice }}</td> 
+    </tr>
+      {{/each}}
+  </table>
+</div>
+</div>
+{{/if}}
